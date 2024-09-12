@@ -6,7 +6,7 @@ const StudentsAccount = require("../Models/userAccount");
 const AutoAttendance = () => {
   console.log("Auto Attendence");
 
-  cron.schedule("06 23 * * *", async () => {
+  cron.schedule("00 14 * * *", async () => {
     console.log("Run Timinng Function");
 
     const students = await StudentsAccount.find({ attendenceMarked: false });
@@ -32,7 +32,7 @@ const AllowMarkInNextDay = () => {
   cron.schedule("00 08 * * *", async () => {
     console.log("Run Timinng Function");
 
-    await StudentsAccount.updateMany({attendenceMarked : false});
+    await StudentsAccount.updateMany({}, { $set: { attendenceMarked: false } });
   });
 } 
 
