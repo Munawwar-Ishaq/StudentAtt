@@ -29,7 +29,7 @@ const AutoAttendance = () => {
 };
 
 const AllowMarkInNextDay = () => {
-  cron.schedule("00 08 * * *", async () => {
+  cron.schedule("17 22 * * *", async () => {
     console.log("Run Timinng Function");
 
     await StudentsAccount.updateMany({}, { $set: { attendenceMarked: false } });
